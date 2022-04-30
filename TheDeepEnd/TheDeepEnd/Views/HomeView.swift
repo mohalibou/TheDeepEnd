@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(Data.questions) { selection in
+                ForEach(QuestionData.questions) { selection in
                     NavigationLink(destination: SectionIntroView(section: selection)) {
                         SelectionView(selection: selection)
                             .padding(5)
@@ -24,6 +24,14 @@ struct HomeView: View {
             }
             .navigationTitle("The Deep End")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: QuestionsFavoritesView()) {
+                        Text("Favorites")
+                    }
+                    
+                }
+            }
         }
         .sheet(isPresented: $needsAppOnboarding) {
             OnboardingView(needsAppOnboarding: $needsAppOnboarding)

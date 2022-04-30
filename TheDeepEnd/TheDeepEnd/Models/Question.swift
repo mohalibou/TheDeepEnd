@@ -42,7 +42,7 @@ struct Question: Identifiable {
                                   question10: "Are you on that sigma male grindset?")
 }
 
-struct Data {
+struct QuestionData {
     static let questions = [
         Question(name: "1 Foot Deep",
                  colorName: Color.oneFootDeep,
